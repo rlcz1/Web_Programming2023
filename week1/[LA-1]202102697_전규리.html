@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Gyuri Jeon">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <title>2023 웹프로그래밍 강의 소개</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+    
+        table, th, td {
+            border: 1px solid black;
+        }
+    
+        th, td {
+            padding: 10px;
+        }
+    
+        table img {
+            width: 100px;
+            height: 80px;
+        }
+    
+        iframe {
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>교과목 개요</h1>
+
+    <h2>수업 개요</h2>
+    <p>본 수업에서는 클라언트 웹 기술인 <strong>HTML5, CSS3, JavaScript</strong>와 서버 기술인 PHP등 웹 프로그래밍과 관련된 기술을 이해한다.그리고 실습을 통해 웹 사이트 또는 웹 앱을 구축해 봄으로써
+        최신 웹 표준기술을 습득한다.</p>
+
+    <h2>수업 운영 방식</h2>
+    <ol>
+        <li>대면 수업으로 함</li>
+        <li>학교 사이버 캠퍼스를 통한 모든 강의 동영상, 슬라이드, 공지 사항 제공</li>
+        <li>Flipped Learing 방식
+            <ul>
+                <li>이론 수업 전 예습 : 이론 강의 동영상을 통해 예습</li>
+                <li>이론 수업 : 그룹 중심의 토론 및 문제 해결</li>
+                <li>실습 수업 : 개별적으로 실습 과제를 해결</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>관련 기술 소개</h2>
+    <table>
+        <tr>
+            <th rowspan="2">분류</th>
+            <th colspan="2">클라이언트 웹 기술</th>
+            <th>서버 기술</th>
+        </tr>
+        <tr>
+            <th>HTML</th>
+            <th>CSS</th>
+            <th>PHP</th>
+        </tr>
+        <tr>
+            <th>이미지</th>
+            <td><img src="images/html_logo.png" alt="html_logo"></td>
+            <td><img src="images/css_logo.png" alt="css_logo"></td>
+            <td><img src="images/php_logo.png" alt="php_logo"></td>
+        </tr>
+        <tr>
+            <th>관련 문서 링크</th>
+            <td><a href="https://html.spec.whatwg.org/multipage/" target="_blank">HTML5 스펙</a></td>
+            <td><a href=" https://www.w3.org/TR/CSS3-/" target="_blank">CSS3 스펙</a></td>
+            <td><a href="https://www.php.net/manual/en/index.php" target="_blank">PHP 매뉴얼</a></td>
+        </tr>
+    </table>
+
+    <h2>참고 사이트</h2>
+    <iframe src="http://www.tcpschool.com/html/intro"></iframe>
+
+    
+    <h2>선호도 조사</h2>
+    <form action="survey.php" method="post">
+        <label for="grade">학년 선택 : </label>
+        <select name="grade" id="grade">
+            <option value="1학년">1학년</option>
+            <option value="2학년">2학년</option>
+            <option value="3학년">3학년</option>
+            <option value="4학년">4학년</option>
+        </select>
+
+        <p>관심있는 분야(1개 이상) 선택 :</p>
+        <input type="checkbox" name="html_input" id="html_input">
+        <label for="html_input">HTML</label>
+        <input type="checkbox" name="css_input" id="css_input">
+        <label for="css_input">CSS</label>
+        <input type="checkbox" name="js_input" id="js_input">
+        <label for="js_input">JavaScript</label>
+        <input type="checkbox" name="php_input" id="php_input">
+        <label for="php_input">PHP</label>
+        <input type="submit" value="제출">
+        <input type="reset" value="초기화">
+    </form>
+
+</body>
+
+</html>
