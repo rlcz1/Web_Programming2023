@@ -1,0 +1,72 @@
+* {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+/* header */
+#header {
+    border: solid red;
+}
+#header > h1 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 70px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+/* option */
+#option {
+    border: solid green;
+}
+#option > .options {
+    float: right;
+}
+#option > .options > span:nth-child(2) {
+    color:  rgba(57, 206, 180, 1);
+}
+#option > .options > span:nth-child(4) {
+    color:  rgba(255, 99, 71, 1)
+}
+#option > .options > span:nth-child(6) {
+    color:   rgba(79, 118, 219, 1)
+}
+#option > .options > span:nth-child(8) {
+    color: rgba(149, 165, 166, 1)
+
+}
+
+
+#content {
+    border: solid;
+    margin-top: 20px;
+}
+/* content - calendar - table */
+#calendar {
+    float: left;
+}
+#calendar > table {
+    width: 100%;
+    font-family: "sans-serif";
+    width: 100%;
+    border: solid 1px #ddd;
+    min-height: 400px;
+    border-collapse: collapse;
+
+}
+#calendar > table th, #calendar > table td {
+    text-align: center;
+    border: solid 1px #ddd;
+    padding: 8px;
+    text-align: left;
+}
+#calendar > table > tbody > tr:nth-child(2n) {
+    background-color: #eeeeee;
+}
+/* content - list */
+#list {
+    float: left;
+    background-color:  rgba(79, 118, 204, 0.2);
+    color: white;
+    padding: 10px;
+}
