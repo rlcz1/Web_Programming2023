@@ -6,7 +6,6 @@
 
 /* header */
 #header {
-    border: solid red;
 }
 #header > h1 {
     font-family: 'Black Han Sans', sans-serif;
@@ -17,7 +16,6 @@
 
 /* option */
 #option {
-    border: solid green;
 }
 #option > .options {
     float: right;
@@ -38,12 +36,12 @@
 
 
 #content {
-    border: solid;
     margin-top: 20px;
 }
 /* content - calendar - table */
 #calendar {
     float: left;
+    padding-right: 10px;
 }
 #calendar > table {
     width: 100%;
@@ -66,7 +64,11 @@
 /* content - list */
 #list {
     float: left;
-    background-color:  rgba(79, 118, 204, 0.2);
     color: white;
+}
+#list > .content {
+    min-height: 400px;
+    width: 100%;
     padding: 10px;
+    background-color:  rgba(79, 118, 204, 0.2);
 }
