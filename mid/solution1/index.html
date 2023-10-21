@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Gyuri Jeon">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <title>2023 웹프로그래밍 강의 소개</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>2023 웹프로그래밍 강의 소개</h1>
+        <div class="main-box">
+            <div class="row">
+                <div class="col-lg-8 col-sm-8">
+                    <div class="row">
+                        <h2>교과목 개요</h2>
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-12 p-20">
+                                <h3>수업 개요</h3>
+                                <p>본 수업에서는 클라언트 웹 기술인 HTML5, CSS3, JavaScript와 서버 기술인 PHP등 웹 프로그래밍과 관련된 기술을
+                                    이해한다.그리고
+                                    <strong>실습을 통해 웹 사이트 또는 웹 앱을 구축</strong>해 봄으로써
+                                    최신 웹 표준기술을 습득한다.
+                                </p>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 p-20">
+                                <h3>수업 운영 방식</h3>
+                                <ol type="I">
+                                    <li>대면 수업으로 함</li>
+                                    <li>학교 사이버 캠퍼스를 통한 모든 강의 동영상, 슬라이드, 공지 사항 제공</li>
+                                    <li>Flipped Learing 방식
+                                        <ul>
+                                            <li>이론 수업 전 예습 : 이론 강의 동영상을 통해 예습</li>
+                                            <li>이론 수업 : 그룹 중심의 토론 및 문제 해결</li>
+                                            <li>실습 수업 : 개별적으로 실습 과제를 해결</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 p-20">
+                                <h3>HTML 소개</h3>
+                                <p>
+                                    하이퍼 텍스트 마크업 언어(영어: Hyper Text Markup Language, HTML, 문화어: 초본문표식달기언어, 하이퍼본문표식달기언어)는 웹
+                                    페이지
+                                    표시를
+                                    위해 개발된 지배적인 마크업 언어다. 또한, HTML은 제목, 단락, 목록 등과 같은 본문을 위한 구조적 의미를 나타내는 것뿐만 아니라 링크, 인용과
+                                    그 밖의
+                                    항목으로 구조적 문서를 만들 수 있는 방법을 제공한다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-12 p-20">
+                                <h2>사용하는 기술 소개</h2>
+                                <table>
+                                    <tr>
+                                        <th rowspan="2">분류</th>
+                                        <th colspan="2">클라이언트 웹 기술</th>
+                                        <th>서버 기술</th>
+                                    </tr>
+                                    <tr>
+                                        <th>HTML</th>
+                                        <th>CSS</th>
+                                        <th>PHP</th>
+                                    </tr>
+                                    <tr>
+                                        <th>이미지</th>
+                                        <td><img src="images/html_logo.png" alt="html_logo"></td>
+                                        <td><img src="images/css_logo.png" alt="css_logo"></td>
+                                        <td><img src="images/php_logo.png" alt="php_logo"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>관련 문서 링크</th>
+                                        <td><a href="https://html.spec.whatwg.org/multipage/" target="_blank">HTML5
+                                                스펙</a>
+                                        </td>
+                                        <td><a href=" https://www.w3.org/TR/CSS3-/" target="_blank">CSS3 스펙</a></td>
+                                        <td><a href="https://www.php.net/manual/en/index.php" target="_blank">PHP
+                                                매뉴얼</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class=" col-lg-4 col-sm-6 p-20">
+                                <h2>참고 사이트</h2>
+                                <iframe src="http://www.tcpschool.com/html/intro"></iframe>
+                            </div>
+                            <div class="col-lg-4 col-sm-6  p-20">
+                                <h2>선호도 조사</h2>
+                                <form action="survey.php" method="post">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-sm-6">
+                                            <label for="grade">학년 선택 : </label>
+                                            <select name="grade" id="grade">
+                                                <option value="1학년">1학년</option>
+                                                <option value="2학년">2학년</option>
+                                                <option value="3학년">3학년</option>
+                                                <option value="4학년">4학년</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-12 col-sm-6">
+                                            <p>관심있는 분야(1개 이상) 선택 :</p>
+                                            <input type="checkbox" name="html_input" id="html_input">
+                                            <label for="html_input">HTML</label>
+                                            <input type="checkbox" name="css_input" id="css_input">
+                                            <label for="css_input">CSS</label>
+                                            <input type="checkbox" name="js_input" id="js_input">
+                                            <label for="js_input">JavaScript</label>
+                                            <input type="checkbox" name="php_input" id="php_input">
+                                            <label for="php_input">PHP</label>
+                                        </div>
+                                    </div>
+                                    <input type="submit" value="제출">
+                                    <input type="reset" value="초기화">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                    <h2>기술 리스트</h2>
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-12 B-img">
+                            <img src="images/html_logo.png" alt="html">
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                            <ul>
+                                <li>기술 리스트</li>
+                                <li>인터넷의 역사</li>
+                                <li>웹브라우저</li>
+                                <li>웹사이트</li>
+                                <li>시맨틱 웹</li>
+                                <li>검색 엔진</li>
+                                <li>웹 디렉토리</li>
+                                <li>하이퍼텍스트</li>
+                                <li>월드 와이드 웹 컨소시엄</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-12 B-img">
+                            <img src="images/PHP_logo.png" alt="php">
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                            <ul>
+                                <li>PHP 역사</li>
+                                <li>젠드 테크놀로지스</li>
+                                <li>1995년 6월 8일</li>
+                                <li>.php, .phtml, .php3, .php4, .php5, .php7, .phps</li>
+                                <li>http://www.php.net/</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-12 B-img">
+                            <img src="images/JS_logo.png" alt="js">
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                            <ul>
+                                <li>넷스케이프, 모질라 재단, Ecma 인터내셔널</li>
+                                <li>1995년 12월 4일</li>
+                                <li>ECMAScript 2021[1]</li>
+                                <li>js.cjs.mjs</li>
+                                <li>www.ecma-international.org/publications-and-standards/standards/ecma-262/</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
