@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="result.php" onsubmit="return formSubmitHandler();" method="post" id="OrderFrm">
+        <div class="item">
+            <span>이름 : </span>
+            <input type="text" name="name" id="name">
+        </div>
+        <div class="item">
+            <span>등급 : </span>
+            <span>VIP</span>
+            <input type="radio" value="vip" name="grade">
+            <span>GOLD</span>
+            <input type="radio" value="gold" name="grade">
+            <span>ACE</span>
+            <input type="radio" value="ace" name="grade">
+        </div>
+        <div class="item">
+            <span>주문 날자 : </span>
+            <input type="text" name="date_month">
+            <span>월</span>
+            <input type="text" name="date_day">
+            <span>일</span>
+        </div>
+        <div class="item">
+            <table>
+                <thead>
+                    <tr>
+                        <th>선택</th>
+                        <th>제품 이름</th>
+                        <th>가격(원)</th>
+                        <th>수량</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" name="item1"></td>
+                        <td>우유</td>
+                        <td>4500</td>
+                        <td><input type="text" value="0" name="food1" class="food_input"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="item2"></td>
+                        <td>만두</td>
+                        <td>6900</td>
+                        <td><input type="text" value="0" name="food2" class="food_input"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="item3"></td>
+                        <td>라면</td>
+                        <td>3500</td>
+                        <td><input type="text" value="0" name="food3" class="food_input"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <input type="submit" value="저장">
+    </form>
+    <br>
+    <br>
+
+    <form action="search.php" method="post">
+        <div class="item">
+            <span>이름 : </span>
+            <input type="text" name="search_name">
+        </div>
+        <div class="item">
+            <span>날짜 : </span>
+            <input type="text" name="search_date">
+            <span>(예:2023-3-2)</span>
+        </div>
+        <button>검색</button>
+    </form>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+{"name":"김민지","rating":"gold","date":"2023-02-02","milk_num":1,"mando_num":0,"ramen_num":0}
+{"name":"김민지","rating":"gold","date":"2023-10-02","milk_num":2,"mando_num":0,"ramen_num":0}
+{"name":"김민지","rating":"gold","date":"2023-02-02","milk_num":1,"mando_num":5,"ramen_num":0}
+{"name":"김김","rating":"vip","date":"2023-02-02","milk_num":1,"mando_num":0,"ramen_num":0}
+{"name":"김민지","rating":"vip","date":"2023-10-05","milk_num":1,"mando_num":0,"ramen_num":0}
+{"name":"김김","rating":"ace","date":"2023-10-22","milk_num":1,"mando_num":0,"ramen_num":0}
+{"name":"김김","rating":"gold","date":"2023-10-30","milk_num":5,"mando_num":2,"ramen_num":0}
+{"name":"홍길동","rating":"gold","date":"2023-10-01","milk_num":5,"mando_num":0,"ramen_num":2}
+{"name":"지서호","rating":"gold","date":"2023-10-01","milk_num":2,"mando_num":0,"ramen_num":0}
+{"name":"홍길동","rating":"ace","date":"2023-02-28","milk_num":2,"mando_num":0,"ramen_num":0}
