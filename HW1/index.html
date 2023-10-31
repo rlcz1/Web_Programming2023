@@ -19,13 +19,13 @@
     <div id="option" class="col-lg-12">
         <button id="makeJournalBtn">일지 작성하기</button>
         <div class="options">
-            <input type="checkbox">
+            <input type="checkbox"  id="todoCheckbox" data-filter="todo">
             <span>할일</span>
-            <input type="checkbox">
+            <input type="checkbox" id="meetingCheckbox" data-filter="meeting">
             <span>회의</span>
-            <input type="checkbox">
+            <input type="checkbox" id="ideaCheckbox" data-filter="idea">
             <span>아이디어</span>
-            <input type="checkbox">
+            <input type="checkbox" id="shoppingCheckbox" data-filter="shopping">
             <span>쇼핑목록</span>
             
         </div>
@@ -70,6 +70,9 @@
     <div id="modifyModal" class="modal">
         <input type="hidden" name="cidx">
         <input type="hidden" name="idx">
+        <input type="hidden" name="hidden_type">
+        <input type="hidden" name="hidden_title">
+        <input type="hidden" name="hidden_content">
         <div class="item">
             <span id="modifyModalEdit">
                 <i class="material-icons">mode_edit</i>
