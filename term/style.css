@@ -1,8 +1,11 @@
+@import url('https://webfontworld.github.io/SCoreDream/SCoreDream.css');
+
 * {
     position: relative;
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0;
+    font-family: 'SCoreDream';
 }
 
 a {
@@ -10,17 +13,21 @@ a {
     text-decoration: none;
 }
 
-p {
-    margin-bottom: 0;
-}
+p {margin-bottom: 0;}
+b {font-weight: 500;}
 
-.row, .row>* {
+.row, .row > * {
     padding: 0;
     margin: 0;
     width: auto;
 }
 
-.container {max-width: 1200px;}
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.container {max-width: 1000px;}
 
 button {
     cursor: pointer;
@@ -30,7 +37,7 @@ button {
     border-radius: 5px;
 }
 
-h1 {font-weight: bold; font-size: 2.2rem;}
+h1 {font-weight: 600; font-size: 2rem;}
 
 body {
     background-color: #f9f9f9;
@@ -40,14 +47,19 @@ body {
 header {
     background: #fff;
     width: 100%;
-    height: 100px;
-    border-bottom: 1px solid #ddd;
+    height: 80px;
     margin-bottom: 50px;
+    z-index: 1;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.03);
 }
 header > div {
     height: 100%;
 }
-header > div > a {
+header > div > .logo {
+    height: 100%;
+    float: left;
+}
+header > div > .logo > a {
     height: 100%;
     display: block;
     padding: 10px 0;
@@ -55,67 +67,128 @@ header > div > a {
     left: 50%;
     transform: translateX(-50%);
 }
-
-header > div > a > img {
+header > div > .logo > a > img {
     height: 100%;
     float: left;
 }
-header > div > a > p {
+header > div > .logo > a > p {
     float: left;
-    line-height: 80px;
+    line-height: 60px;
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 600;
+    color: #041552;
+}
+header > div > .nav {
+    height: 100%;
+    float: right;
+}
+header > div > .nav > a {
+    color: #041552;
+    font-weight: 500;
+    margin-left: 20px;
+    line-height: 80px;
 }
 
 /* list container */
-.listContainer > .mainList > .mainItem {
+.listContainer > .list > .listItem {
     width: calc((100% - 20px) / 2);
     margin-right: 20px;
     margin-bottom: 20px;
     float: left;
-    border: solid 1px #ddd;
+    border: solid 1px #eee;
     border-radius: 20px;
     padding: 20px;
     background-color: #fff;
 }
-.listContainer > .mainList > .mainItem:nth-child(2n) {
+.listContainer > .list > .listItem:nth-child(2n) {
     margin-right: 0;
 }
-.listContainer > .mainList > .mainItem > div:first-child > p {
+.listContainer > .list > .listItem > div:first-child > p {
     font-size: 25px;
-    font-weight: bold;
+    font-weight: 500;
     margin-bottom: 10px;
 }
-.listContainer > .mainList > .mainItem > div:nth-child(2) > p {
+.listContainer > .list > .listItem > div:nth-child(2) > p {
     float: left;
 }
-.listContainer > .mainList > .mainItem > div:nth-child(2) > p > span {
+.listContainer > .list > .listItem > div > p > span {
     float: left;
 }
-.listContainer > .mainList > .mainItem > div:nth-child(2) > a {
+.listContainer > .list > .listItem > div:nth-child(2) > button {
     float: right;
-    border: solid 1px #ddd;
+    border: solid 1px #eee;
     border-radius: 5px;
     padding: 1px 5px;
     color: #777;
     margin-left: 5px;
 }
-.listContainer > .mainList > .mainItem > div:last-child > button {
+.listContainer > .list > .listItem > div:last-child > button {
     width: 100%;
     height: 35px;
     margin-top: 10px;
+    transition: all 0.3s;
 }
-.listContainer > .mainList > .mainItem > div:last-child > button > span {
+.listContainer > .list > .listItem > div:last-child > button:hover {
+    background: #041552;
+    color: #fff;
+}
+.listContainer > .list > .listItem > div:last-child > button > span {
     left: 50%;
     transform: translateX(-50%);
     float: left;
 }
-.listContainer > .mainList > .mainItem > div:last-child > button > span > * {
+.listContainer > .list > .listItem > div:last-child > button > span > * {
     float: left;
 }
+
+
 /* subject */
 #subject {
     max-width: 1000px;
+}
+
+/* friend */
+#friend.listContainer > .list > .listItem {
+    width: calc((100% - 40px) / 3);
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+#friend.listContainer > .list > .listItem:nth-child(2n) {
+    margin-right: 10px;
+}
+#friend.listContainer > .list > .listItem:nth-child(3n) {
+    margin-right: 0px;
+}
+#friend.listContainer > .list > .listItem > .row {
+    display: block;
+    width: 100%;
+    float: left;
+}
+#friend.listContainer > .list > .listItem > div > p {
+    font-weight: 500;
+    float: left;
+}
+#friend.listContainer > .list > .listItem > div > p:last-child {
+    float: right;
+    font-weight: 200;
+    color: #777;
+    font-size: 15px;
+}
+#friend.listContainer > .list > .listItem > div:first-child > p {
+    font-size: 20px;
+    font-weight: 600;
+}
+#friend.listContainer > .list > .listItem > div:first-child > p > span {
+    line-height: 30px;
+}
+#friend.listContainer > .list > .listItem > div:first-child > span {
+    line-height: 30px;
+    margin-left: 5px;
+    color: #999;
+    font-weight: 200;
+}
+#friend.listContainer > .list > .listItem > div:last-child > button > span {
+    float: left;
 }
 
 /* serach */
@@ -127,7 +200,7 @@ header > div > a > p {
     width: 100%;
     height: 35px;
     border-radius: 20px;
-    border: solid 1px #ddd;
+    border: solid 1px #eee;
     padding: 0 50px 0 20px;
     outline: none;
 }
@@ -143,3 +216,438 @@ header > div > a > p {
     font-size: 14px;
     margin-top: 20px;
 }
+
+/* stats */
+#stats {
+    max-width: 1000px;
+}
+#stats > div {
+    border: solid 1px #eee;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px 50px;
+}
+#stats > div > .row:first-child {
+    margin-bottom: 10px;
+}
+#stats > div > .row:first-child > p > span {
+    float: left;
+    font-size: 25px;
+    line-height: 25px;
+}
+#stats > div > .row:first-child > span {
+    color: #777;
+    line-height: 35px;
+    margin-left: 5px;
+}
+#stats > div > .row > .statsItem {
+    width: calc(100% / 4);
+    border: solid 1px #ddd;
+    border-right: none;
+    padding: 10px;
+    text-align: center;
+}
+#stats > div > .row > .statsItem:last-child {
+    border: 1px solid #ddd;
+}
+#stats > div > .row > .statsItem > p:first-child {
+    font-size: 18px;
+    font-weight: 500;
+}
+#stats > div > .row > .statsItem > p:last-child {
+    color: #777;
+}
+#stats > div > .row#chart {
+    margin-top: 20px;
+    border: solid 1px #ddd;
+    height: 300px;
+    border-radius: 10px;
+}
+#stats > div > .row#subjectStats {
+    margin-top: 30px;
+}
+#stats > div > .row#subjectStats > p {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    width: 100%;
+}
+#stats > div > .row#subjectStats > .subjectStatsItem {
+    width: 100%;
+    float: left;
+}
+#stats > div > .row#subjectStats > .subjectStatsItem > p:first-child {
+    float: left;
+}
+#stats > div > .row#subjectStats > .subjectStatsItem > p:first-child > span {
+    color: #777;
+}
+#stats > div > .row#subjectStats > .subjectStatsItem > p:last-child {
+    float: right;
+    color: #777;
+}
+
+/* village */
+#village {
+    width: 100vw;
+    height: calc(100vh - 80px);
+    background: bottom center/cover url(images/village.jpg);
+}
+#village > .chacha {
+    position: absolute;
+    bottom: 120px;
+    right: 120px;
+    cursor: pointer;
+}
+
+#village > .chacha > p {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #041552;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#village > .chacha > img {
+    height: 450px;
+    animation: sway 2s infinite;
+}
+#village > .chacha:nth-child(2) {
+    left: 150px;
+    bottom: 170px;
+    right: auto;
+}
+#village > .chacha:nth-child(2) > img {
+    height: 360px;
+}
+#village > .chacha > .context {
+    width: 130px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+#village > .chacha > .context > button {
+    width: 100%;
+    float: left;
+    font-weight: 500;
+    padding: 2px 0;
+    margin-top: 10px;
+    border-radius: 20px;
+    border: solid 1px #ddd;
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: rotate(0deg);
+        }
+    50% {
+        transform: rotate(5deg);
+        }
+}
+
+#modalBackground {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    display: none;
+}
+/* start modal */
+.modal {
+    width: 500px;
+    height: 650px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    z-index: 2;
+    display: none;
+}
+.modal > .row:first-child > p  {
+    font-size: 25px;
+    width: 100%;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+}
+#startModal > div, #statusModal > div {
+    justify-content: center;
+}
+#startModal > div:nth-child(2) {
+    margin-top: 50px;
+}
+#startModal > div:nth-child(2) > img {
+    height: 300px;
+    margin-top: 20px;
+}
+
+#startModal > div:first-child {
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+#startModal > #startModalTime {
+    font-size: 70px;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal > div > button {
+    width: 120px;
+    height: 35px;
+    background: #041552;
+    color: #fff;
+    border: none;
+}
+
+/* status Modal */
+#statusModal {
+    width: 350px;
+    height: 200px;
+    overflow: hidden;
+}
+#statusModal > .row > button {
+    margin-top: 15px;
+    height: 30px;
+}
+
+/* rank modal */
+#RankModal {
+    height: auto;
+}
+#RankModal > .listContainer {
+    margin-top: 20px;
+}
+#RankModal > .listContainer > .listItem {
+    width: 100%;
+}
+#RankModal > .listContainer > .listItem > * {
+    float: left;
+    line-height: 30px;
+}
+#RankModal > .listContainer > .listItem > p:first-child {
+    font-size: 20px;
+    margin-right: 20px;
+}
+#RankModal > .listContainer > .listItem > p > b {
+    font-weight: 700;
+}
+#RankModal > .listContainer > .listItem > p > * {
+    float: left;
+    line-height: 30px;
+}
+#RankModal > .listContainer > .listItem > span {
+    color: #777;
+    font-size: 14px;
+    margin-left: 5px;
+}
+#RankModal > .listContainer > .listItem > p:last-child {
+    float: right;
+    margin-right: 0;
+}
+#RankModal > .row > button {
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+}
+
+
+/* css fire effect - https://codepen.io/yamanda/pen/RpNMaY  */
+  @keyframes scaleUpDown {
+    0%,
+    100% {
+      transform: scaleY(1) scaleX(1);
+    }
+    50%,
+    90% {
+      transform: scaleY(1.1);
+    }
+    75% {
+      transform: scaleY(0.95);
+    }
+    80% {
+      transform: scaleX(0.95);
+    }
+  }
+  
+  @keyframes shake {
+    0%,
+    100% {
+      transform: skewX(0) scale(1);
+    }
+    50% {
+      transform: skewX(5deg) scale(0.9);
+    }
+  }
+  
+  @keyframes particleUp {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      top: -100%;
+      transform: scale(0.5);
+    }
+  }
+  
+  @keyframes glow {
+    0%,
+    100% {
+      background-color: #ef5a00;
+    }
+    50% {
+      background-color: #ff7800;
+    }
+  }
+  
+  .fire {
+    z-index: 2;
+    position: absolute;
+    top: 10px;
+    left: calc(50% - 35px);
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .fire-center {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    animation: scaleUpDown 3s ease-out;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  
+    .main-fire {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(
+        farthest-corner at 10px 0,
+        #d43300 0%,
+        #ef5a00 95%
+      );
+      transform: scaleX(0.8) rotate(45deg);
+      border-radius: 0 40% 60% 40%;
+      filter: drop-shadow(0 0 10px #d43322);
+    }
+  
+    .particle-fire {
+      position: absolute;
+      top: 60%;
+      left: 45%;
+      width: 10px;
+      height: 10px;
+      background-color: #ef5a00;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 10px #d43322);
+      animation: particleUp 2s ease-out 0;
+      animation-iteration-count: infinite;
+      animation-fill-mode: both;
+    }
+  }
+  
+  .fire-right {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    animation: shake 2s ease-out 0;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  
+    .main-fire {
+      position: absolute;
+      top: 15%;
+      right: -25%;
+      width: 80%;
+      height: 80%;
+      background-color: #ef5a00;
+      transform: scaleX(0.8) rotate(45deg);
+      border-radius: 0 40% 60% 40%;
+      filter: drop-shadow(0 0 10px #d43322);
+    }
+  
+    .particle-fire {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      width: 15px;
+      height: 15px;
+      background-color: #ef5a00;
+      transform: scaleX(0.8) rotate(45deg);
+      border-radius: 50%;
+      filter: drop-shadow(0 0 10px #d43322);
+      animation: particleUp 2s ease-out 0;
+      animation-iteration-count: infinite;
+      animation-fill-mode: both;
+    }
+  }
+  
+  .fire-left {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    animation: shake 3s ease-out 0;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  
+    .main-fire {
+      position: absolute;
+      top: 15%;
+      left: -20%;
+      width: 80%;
+      height: 80%;
+      background-color: #ef5a00;
+      transform: scaleX(0.8) rotate(45deg);
+      border-radius: 0 40% 60% 40%;
+      filter: drop-shadow(0 0 10px #d43322);
+    }
+  
+    .particle-fire {
+      position: absolute;
+      top: 10%;
+      left: 20%;
+      width: 10%;
+      height: 10%;
+      background-color: #ef5a00;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 10px #d43322);
+      animation: particleUp 3s infinite ease-out 0;
+      animation-fill-mode: both;
+    }
+  }
+  
+  .fire-bottom .main-fire {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    width: 75%;
+    height: 75%;
+    background-color: #ff7800;
+    transform: scaleX(0.8) rotate(45deg);
+    border-radius: 0 40% 100% 40%;
+    filter: blur(10px);
+    animation: glow 2s ease-out 0;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  }
+  
