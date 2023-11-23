@@ -141,6 +141,11 @@ header > div > .nav > a {
     float: left;
 }
 
+#main.listContainer > .list > .listItem > div {
+    display: block;
+    width: 100%;
+    float: left;
+}
 
 /* subject */
 #subject {
@@ -295,8 +300,8 @@ header > div > .nav > a {
 }
 #village > .chacha {
     position: absolute;
-    bottom: 120px;
-    right: 120px;
+    /* bottom: 120px;
+    right: 120px; */
     cursor: pointer;
 }
 
@@ -309,17 +314,18 @@ header > div > .nav > a {
 }
 
 #village > .chacha > img {
+    width: 100%;
     height: 450px;
     animation: sway 2s infinite;
 }
-#village > .chacha:nth-child(2) {
+/* #village > .chacha:nth-child(2) {
     left: 150px;
     bottom: 170px;
     right: auto;
 }
 #village > .chacha:nth-child(2) > img {
     height: 360px;
-}
+} */
 #village > .chacha > .context {
     width: 130px;
     border-radius: 20px;
@@ -460,6 +466,40 @@ header > div > .nav > a {
     transform: translateX(-50%);
     margin-top: 20px;
 }
+
+/* 통계 모달 */
+#StatsModal {
+    height: auto;
+}
+#StatsModal > .row {
+    display: block;
+}
+#StatsModal > div:nth-child(2) {
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+}
+#StatsModal > .listContainer {
+    margin-top: 20px;
+}
+#StatsModal > .listContainer > .listItem {
+    width: 100%;
+    float: left;
+}
+#StatsModal > .listContainer > .listItem > p {
+    float: left;
+}
+#StatsModal > .listContainer > .listItem > p:last-child {
+    float: right;
+    color: #777;
+}
+#StatsModal > div > button {
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+}
+
+
 
 
 /* css fire effect - https://codepen.io/yamanda/pen/RpNMaY  */
