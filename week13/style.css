@@ -1,0 +1,13 @@
+* {
+  position: relative;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+#video {
+  /* display: none; */
+}
+
+canvas {
+  border: solid;
+}
