@@ -112,23 +112,20 @@
         </div>
     </form>
 
-    <div id="modifyModal" class="modal">
-        <input type="hidden" name="cidx">
-        <input type="hidden" name="idx">
-        <input type="hidden" name="hidden_type">
-        <input type="hidden" name="hidden_title">
-        <input type="hidden" name="hidden_content">
-        <div class="item">
+
+    <form id="modifyModal" class="modal" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id">
+        <!-- <div class="item">
             <span id="modifyModalEdit">
                 <i class="material-icons">mode_edit</i>
             </span>
             <span id="modifyModalDelete">
                 <i class="material-icons">delete</i>
             </span>
-            <span id="modifyModalClose">
+            <span id="modifyModalClose" class="modalCloseBtn">
                 <i class="material-icons">close</i>
             </span>
-        </div>
+        </div> -->
         <div class="item">
             <span>제목 : </span>
             <input type="text" name="title" disabled>
@@ -148,10 +145,15 @@
         </div>
         <div class="item">
             <span>파일 : </span>
+            <a href="" target="_blank" class="modifyFileName"></a>
             <input type="file" name="file">
         </div>
+        <div class="item" id="viewModalBtns">
+            <button type="button" class="modifyBtn">수정</button>
+            <button type="button" class="modalCloseBtn">취소</button>
+        </div>
         <div class="item" id="modifyModalBtns">
-            <button id="modifyModalSaveBtn">저장</button>
+            <button id="modifyModalSaveBtn">제출</button>
             <button type="button" class="modalCloseBtn">취소</button>
         </div>
     </div>
