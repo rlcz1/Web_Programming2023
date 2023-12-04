@@ -4,9 +4,16 @@
   $arr = array();
 
   $file = fopen("data/mylist.json", "r");
+
+  // 빈 파일인지 체크
+  if (filesize("data/mylist.json") == 0) {
+    echo json_encode($arr);
+    return;
+  }
+
   while(!feof($file)) {
     $txt = fgets($file, filesize("data/mylist.json"));
-    if ($txt == "") break;
+    if (trim($txt) == "") break;
     $obj = (object)json_decode($txt, true);
     array_push($arr, $obj);
   }
@@ -37,14 +44,6 @@
     fwrite($file, json_encode($value, JSON_UNESCAPED_UNICODE));
     fwrite($file, "\n");
   }
-  // fwrite($file, "\n");
   fclose($file);
 
-  // echo var_dump($arr);
-
-  // foreach($arr as $value) {
-  //     $txt = $value[0] . "|" . $value[1];
-  //     fwrite($file, $txt);
-  // }
-  // fclose($file);
 ?>

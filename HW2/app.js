@@ -18,10 +18,78 @@ class App {
         $(document).on("dragleave", "li.todo_item", this.dragLeaveItem);
         $(document).on("drop", "td", this.drop);
         $(document).on("drop", "li.todo_item", this.dropItem);
+        $(document).on("click", "#list .todo_list .todo_item", this.deleteTodo);
+        $(document).on("click", "#list .delete_list .todo_item", this.deleteCancel);
         $(".modalCloseBtn").click(() => $(".modal").hide());
         $("#writeFrmBtn").click(this.writeTodo);
         $(".modifyBtn").click(this.viewModifyFrm);
         $("#modifyModalSaveBtn").click(this.modifyTodo);
+    }
+
+    deleteCancel = (e) => {
+        e.stopPropagation();
+        const id = $(e.currentTarget).data("id");
+
+        console.log(id, e.currentTarget);
+
+        $.ajax({
+            url: "deleteCancel.php",
+            type: "POST",
+            data: {
+                id: id
+            },
+            success: (data) => {
+                console.log(data);
+                alert("미완료로 표시됩니다.");
+                this.makeCalender();
+            },
+            error: (err) => {
+                console.log(err);
+            }
+        });
+    }
+
+    deleteList = () => {
+        $("#list .delete_list").empty();
+
+        $.ajax({
+            url: "getDeleteList.php",
+            type: "GET",
+            success: (datas) => {
+                const todo = JSON.parse(datas);
+                if (todo[0] == null) return;
+
+                $(todo).each((idx, data) => {
+                    $("#list .delete_list").append(`
+                        <div class="todo_item" data-id="${data.id}">${data.title}</div>
+                    `);
+                });
+            },
+            error: (err) => {
+                console.log(err);
+            }
+        });
+    }
+
+    deleteTodo = (e) => {
+        e.stopPropagation();
+        const id = $(e.currentTarget).data("id");
+
+        $.ajax({
+            url: "delete.php",
+            type: "POST",
+            data: {
+                id: id
+            },
+            success: (data) => {
+                console.log(data);
+                alert("삭제되었습니다.");
+                this.makeCalender();
+            },
+            error: (err) => {
+                console.log(err);
+            }
+        });
     }
 
     dropItem = (e) => {
@@ -30,6 +98,7 @@ class App {
         $(e.target).removeClass("dragOverItem");
 
         const data = e.originalEvent.dataTransfer.getData("text");
+        const prevDate = e.originalEvent.dataTransfer.getData("prevDate");
         const id = $("#"+data).data("id");
         const targetId = $(e.target).data("id");
 
@@ -41,27 +110,45 @@ class App {
         if (day < 10) day = "0" + day;
 
         const targetDate = `2023-${month}-${day}`;
-        const prevDate = $("#"+data).parent().parent().parent().find(".date").text();
 
-        console.log(targetDate, prevDate)
+        // 같은 요일일때
+        if (Number(prevDate) == Number(day)) {
+            $.ajax({
+                url: "dropItemSame.php",
+                type: "POST",
+                data: {
+                    id: id,
+                    targetId: targetId,
+                },
+                success: (data) => {
+                    console.log(data);
+                    this.makeCalender();
+                },
+                error: (err) => {
+                    console.log(err);
+                }
+            });
+        } else {
+            $.ajax({
+                url: "dropItem.php",
+                type: "POST",
+                data: {
+                    id: id,
+                    targetId: targetId,
+                },
+                success: (data) => {
+                    console.log(data);
+                    this.makeCalender();
+                },
+                error: (err) => {
+                    console.log(err);
+                }
+            });
+        }
+
+
+        console.log(day, prevDate)
         return;
-
-        $.ajax({
-            url: "dropItem.php",
-            type: "POST",
-            data: {
-                id: id,
-                targetId: targetId,
-                // targetDate: targetDate
-            },
-            success: (data) => {
-                console.log(data);
-                this.makeCalender();
-            },
-            error: (err) => {
-                console.log(err);
-            }
-        });
     }
 
     dragLeaveItem = (e) => {    
@@ -76,7 +163,10 @@ class App {
 
     drop = (e) => {
         e.stopPropagation();
+        console.log("drop")
+
         const data = e.originalEvent.dataTransfer.getData("text");
+        const prevDate = e.originalEvent.dataTransfer.getData("prevDate");
 
         $(e.target).find(".todoContainer").append($("#"+data));
 
@@ -87,6 +177,13 @@ class App {
         if (month < 10) month = "0" + month;
         if (day < 10) day = "0" + day;
 
+        let dateFlag = false;
+
+        // 같은 요일일때
+        if (Number(prevDate) == Number(day)) {
+            dateFlag = true;
+        } 
+
         const targetDate = `2023-${month}-${day}`;
 
         $.ajax({
@@ -94,10 +191,11 @@ class App {
             type: "POST",
             data: {
                 id: id,
-                targetDate: targetDate
+                targetDate: targetDate,
+                dateFlag: dateFlag,
             },
             success: (data) => {
-                // console.log(data);
+                console.log(data);
                 this.makeCalender();
             },
             error: (err) => {
@@ -113,8 +211,10 @@ class App {
 
     dragStart = (e) => {
         $(e.target).addClass("dragging");
-        // e.originalEvent.dataTransfer.setData("text", $(e.target).data("id"));
         e.originalEvent.dataTransfer.setData("text", $(e.target).attr("id"));
+
+        const prevDate = $(e.target).parent().parent().find(".date").text();
+        e.originalEvent.dataTransfer.setData("prevDate", prevDate);
     }
 
     modifyTodo = (e) => {
@@ -231,7 +331,7 @@ class App {
     makeCalender = (e) => {
         const date = new Date();
 
-        let month = 1;
+        let month = $("#monthSelect").val();
         if (e != undefined) {
             month = e.target.value;
         }
@@ -273,6 +373,7 @@ class App {
         }
 
         this.getTodoItem();
+        this.deleteList();
     }
 
     getTodoList = () => {
@@ -283,11 +384,9 @@ class App {
                 const todo = JSON.parse(datas);
                 if (todo[0] == null) return;
 
-                // console.log(todo);
-
                 $(todo).each((idx, data) => {
                     $("#list .todo_list").append(`
-                        <div class="todo_item ${data.category}" data-id="${data.id}">${data.title}</div>
+                        <div class="todo_item" data-id="${data.id}">${data.title}</div>
                     `);
                 });
             },
@@ -312,10 +411,9 @@ class App {
                     date: date
                 },
                 success: (datas) => {
+                    if (datas == "") return;
                     const todo = JSON.parse(datas);
                     if (todo[0] == null) return;
-
-                    // console.log(todo);
 
                     $(todo).each((idx, data) => {
                         $(item).find(".todoContainer").append(`

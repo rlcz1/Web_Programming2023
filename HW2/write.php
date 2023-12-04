@@ -1,37 +1,43 @@
 <?php
 
   // id 구하기
-  $id = -1;
-
-  $file = fopen("data/mylist.json", "r");
-  while(!feof($file)) {
-      $txt = fgets($file, filesize("data/mylist.json"));
-      if ($txt == "") break;
-      $obj = (object)json_decode($txt, true);
-      $id = $obj->id;
+  $id = 0;
+   // 빈 파일인지 체크
+   if (filesize("data/mylist.json") != 0) {
+    $file = fopen("data/mylist.json", "r");
+    while(!feof($file)) {
+        $txt = fgets($file, filesize("data/mylist.json"));
+        if (trim($txt) == "") break;
+        $obj = (object)json_decode($txt, true);
+        $id = max($id, $obj->id);
+    }
+    fclose($file);
   }
-  fclose($file);
 
   $id++;
 
-  // json데이터 생성
+  // date
   $month = ($_POST['month']) < 10 ? '0' . $_POST['month'] : $_POST['month'];
   $day = ($_POST['date']) < 10 ? '0' . $_POST['date'] : $_POST['date'];
   $date = '2023' . '-' . $month . '-' . $day;
 
   //order 구하기
   $order = 1;
-
-  $file = fopen("data/mylist.json", "r");
-  while(!feof($file)) {
-      $txt = fgets($file, filesize("data/mylist.json"));
-      if ($txt == "") break;
-      $obj = (object)json_decode($txt, true);
-      if ($obj->date == $date) {
-        $order = $obj->order + 1;
-      }
+  // 빈 파일인지 체크
+  if (filesize("data/mylist.json") != 0) {
+    $file = fopen("data/mylist.json", "r");
+    while(!feof($file)) {
+        $txt = fgets($file, filesize("data/mylist.json"));
+        if (trim($txt) == "") break;
+        $obj = (object)json_decode($txt, true);
+        if ($obj->date == $date) {
+          $order = $obj->order + 1;
+        }
+    }
   }
 
+
+  // json데이터 생성
   $obj = new stdClass();
   $obj->id = $id;
   $obj->date = $date;

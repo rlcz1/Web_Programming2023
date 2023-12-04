@@ -148,10 +148,14 @@
 #list > div.delete_list {
     background: rgba(000, 000, 255, 0.2);
 }
+#list > div.delete_list .todo_item {
+    text-decoration: line-through;
+}
 #content .todo_item {
     margin: 5px;
     padding: 5px;
     border: groove 1px #e7e7e7;
+    background: rgba(149, 165, 166, 1);
     border-radius: 5px;
     width: 100%;
     float: left;
