@@ -16,17 +16,17 @@
     <header>
         <div class="container">
             <div class="logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="images/chacha/study.png" alt="logo">
                     <p>스터디 with 차차</p>
                 </a>
             </div>
             <div class="nav">
                 <a href="">과목 리스트</a>
-                <a href="pages/subject.html">과목 검색</a>
-                <a href="pages/village.html">캐릭터 마을</a>
-                <a href="pages/friend.html">친구목록</a>
-                <a href="pages/statistics.html">통계보기</a>
+                <a href="pages/subject.php">과목 검색</a>
+                <a href="pages/village.php">캐릭터 마을</a>
+                <a href="pages/friend.php">친구목록</a>
+                <a href="pages/statistics.php">통계보기</a>
             </div>
         </div>
     </header>

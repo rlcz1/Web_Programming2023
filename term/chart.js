@@ -1,6 +1,6 @@
 /*
     chart.js 라이브러리의 샘플 코드 참고
-    https://www.chartjs.org/docs/latest/samples/bar/floating.html
+    https://www.chartjs.org/docs/latest/samples/bar/floating.php
 */
 const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {
