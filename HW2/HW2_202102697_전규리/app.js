@@ -405,12 +405,11 @@ class App {
 
             $.ajax({
                 url: "calendar.php",
+                type: "GET",
                 data: {
                     month: month,
                     date: date
                 },
-                type: "GET",
-
                 success: (datas) => {
                     if (datas == "") return;
                     const todo = JSON.parse(datas);
