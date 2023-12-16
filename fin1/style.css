@@ -1,0 +1,24 @@
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+
+#productName {
+  width: 200px;
+
+}
+
+.autoList {
+  display: none;
+  width: 200px;
+  border: solid 1px #ccc;
+  margin-left: 70px;
+}
+
+.autoList > div {
+  width: 100%;
+  padding: 5px 20px;
+}
+.autoList > div:hover {
+  background-color: #eee;
+}
