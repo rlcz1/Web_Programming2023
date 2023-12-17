@@ -27,6 +27,15 @@
                 <a href="village.php">캐릭터 마을</a>
                 <a href="friend.php">친구목록</a>
                 <a href="statistics.php">통계보기</a>
+                <?php 
+                    session_start();
+                    if (isset($_SESSION['user'])) {
+                        echo "<a href='../post/logout.php'>로그아웃</a>";
+                    } else {
+                        echo "<a href='login.php'>로그인</a>";
+                        echo "<a href='join.php'>회원가입</a>";
+                    }
+                ?>
             </div>
         </div>
     </header>
@@ -44,46 +53,57 @@
             <div class="row">
                 <div class="statsItem">
                     <p>총 공부시간</p>
-                    <p>160시간 53분 23초</p>
-                </div>
-                <div class="statsItem">
-                    <p>하루 평균 공부시간</p>
-                    <p>160시간 53분 23초</p>
+                    <p>
+                        <span class="material-symbols-outlined">schedule</span>
+                        <span id="statTotalTime">160시간 53분 23초</span>
+                    </p>
                 </div>
                 <div class="statsItem">
                     <p>최대 집중시간</p>
-                    <p>160시간 53분 23초</p>
+                    <p> 
+                        <span class="material-symbols-outlined">schedule</span>
+                        <span id="statMaxTime">160시간 53분 23초</span>
+                    </p>
                 </div>
                 <div class="statsItem">
                     <p>가장 많이 공부한 과목</p>
-                    <p>시스템프로그래밍</p>
+                    <p> 
+                        <span class="material-symbols-outlined">subject</span>
+                        <span id="statMaxSubject">시스템프로그래밍</span>
+                    </p>
                 </div>
             </div>
             <div id="chart" class="row">
+                <span style="font-size:12px">단위 : 분</span>
                 <canvas id="myChart" height="300" width="872"></canvas>
             </div>
             <div id="subjectStats" class="row">
                 <p>과목별 공부시간</p>
-                <div class="subjectStatsItem">
-                    <p>
-                        <b>1. 시스템프로그래밍</b> 
-                        <span>00분반 | 김형신</span>
-                    </p>
-                    <p>160시간 53분 23초</p>
-                </div>
-                <div class="subjectStatsItem">
-                    <p>
-                        <b>2. 웹프로그래밍</b> 
-                        <span>01분반 | 유정연</span>
-                    </p>
-                    <p>120시간 11분 13초</p>
-                </div>
-                <div class="subjectStatsItem">
-                    <p>
-                        <b>3. 객체지향설계</b> 
-                        <span>02분반 | 이성호</span>
-                    </p>
-                    <p>45시간 13분 45초</p>
+                <div id="subjectStatsList">
+                    <div class="subjectStatsItem">
+                        <p>
+                            <b>1. 시스템프로그래밍</b> 
+                            <span>00분반 | 김형신</span>
+                        </p>
+                        <p> 
+                            <span class="material-symbols-outlined">schedule</span>
+                            <span id="statMaxTime">160시간 53분 23초</span>
+                        </p>
+                    </div>
+                    <div class="subjectStatsItem">
+                        <p>
+                            <b>2. 웹프로그래밍</b> 
+                            <span>01분반 | 유정연</span>
+                        </p>
+                        <p>120시간 11분 13초</p>
+                    </div>
+                    <div class="subjectStatsItem">
+                        <p>
+                            <b>3. 객체지향설계</b> 
+                            <span>02분반 | 이성호</span>
+                        </p>
+                        <p>45시간 13분 45초</p>
+                    </div>
                 </div>
             </div>
         </div>

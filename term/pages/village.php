@@ -27,27 +27,21 @@
                 <a href="village.php">캐릭터 마을</a>
                 <a href="friend.php">친구목록</a>
                 <a href="statistics.php">통계보기</a>
+                <?php 
+                    session_start();
+                    if (isset($_SESSION['user'])) {
+                        echo "<a href='../post/logout.php'>로그아웃</a>";
+                    } else {
+                        echo "<a href='login.php'>로그인</a>";
+                        echo "<a href='join.php'>회원가입</a>";
+                    }
+                ?>
             </div>
         </div>
     </header>
 
     <div id="village">
-        <!-- <div class="chacha">
-            <p class="chachaName">생활일본어 차차</p>
-            <img src="../images/chacha/인문대학.png" alt="chacha">
-            <div class="context">
-                <button class="giveCarrotBtn">당근 주기</button>
-                <button class="viewStatusBtn">상태 보기</button>
-            </div>
-        </div>
-        <div class="chacha">
-            <p class="chachaName">시스템프로그래밍 차차</p>
-            <img src="../images/chacha/공과대학.png" alt="chacha">
-            <div class="context">
-                <button class="giveCarrotBtn">당근 주기</button>
-                <button class="viewStatusBtn">상태 보기</button>
-            </div>
-        </div> -->
+
     </div>
 
     <div id="modalBackground"></div>
@@ -56,11 +50,11 @@
             <p>시스템프로그래밍 차차</p>
         </div>
         <div class="row">
-            <b>Lv</b>&nbsp;&nbsp;14
+            <p><b>Lv</b>&nbsp;&nbsp;<span id="level">14</span></p>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <b>상태</b>&nbsp;&nbsp;배고픔
-        </div>
+        </div> -->
         <div class="row">
             <button class="statusModalCloseBtn">닫기</button>
         </div>

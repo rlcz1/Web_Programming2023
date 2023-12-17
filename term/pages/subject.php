@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" href="../images/chacha/study.png">
+    <script src="../app.js"></script>
 </head>
 <body>
     <header>
@@ -26,19 +27,28 @@
                 <a href="village.php">캐릭터 마을</a>
                 <a href="friend.php">친구목록</a>
                 <a href="statistics.php">통계보기</a>
+                <?php 
+                    session_start();
+                    if (isset($_SESSION['user'])) {
+                        echo "<a href='../post/logout.php'>로그아웃</a>";
+                    } else {
+                        echo "<a href='login.php'>로그인</a>";
+                        echo "<a href='join.php'>회원가입</a>";
+                    }
+                ?>
             </div>
         </div>
     </header>
 
     <div id="subject" class="listContainer container">
-        <h1>과목 리스트</h1>
+        <h1>과목 검색</h1>
         <div id="search">
-            <input type="text" placeholder="과목명을 입력하세요">
+            <input type="text" id="search_input" placeholder="과목명을 입력하세요">
             <span class="material-symbols-outlined">search</span>
-            <p>총 3건의 검색결과가 있습니다.</p>
+            <p>총 <span id="search_len">3</span>건의 검색결과가 있습니다.</p>
         </div>
 
-        <div class="row list">
+        <div class="row list" id="search_list">
             <div class="listItem">
                 <div class="row">
                     <p>시스템프로그래밍</p>

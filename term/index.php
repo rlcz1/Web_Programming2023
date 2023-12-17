@@ -27,21 +27,36 @@
                 <a href="pages/village.php">캐릭터 마을</a>
                 <a href="pages/friend.php">친구목록</a>
                 <a href="pages/statistics.php">통계보기</a>
+                <?php 
+                    session_start();
+                    if (isset($_SESSION['user'])) {
+                        echo "<a href='post/logout.php'>로그아웃</a>";
+                    } else {
+                        echo "<a href='pages/login.php'>로그인</a>";
+                        echo "<a href='pages/join.php'>회원가입</a>";
+                    }
+                ?>
             </div>
         </div>
     </header>
 
     <div id="main" class="listContainer container">
         <h1>과목 리스트</h1>
-        <div class="row list">
+        <div id="main_list" class="row list">
 
             <div class="listItem">
-                <div class="row subjectName">
-                    <p>시스템프로그래밍</p>
+                <div class="row">
+                    <p>
+                        <span class="subjectName">시스템프로그래밍</span>
+                        <span class="subject_no">1101_1102</span>
+                    </p>
                 </div>
                 <div class="row">
                     <p>
-                        <span>00분반 | 김형신 |&nbsp;</span>
+                        <span class="dclass">00분반</span>
+                        <span>&nbsp;|&nbsp;</span>
+                        <span class="prof">김형신</span>
+                        <span>&nbsp;|&nbsp;</span>
                         <span class="material-symbols-outlined">group</span>
                         <span>&nbsp;2명</span>
                     </p>
@@ -205,9 +220,9 @@
             <p>시스템프로그래밍 공부 기록</p>
         </div>
         <div class="row">
-            <p>총 공부시간 <b>5시간</b></p>
+            <p>총 공부시간 <b id="statsTotalTime">5시간</b></p>
         </div>
-        <div class="listContainer row">
+        <div id="statsModalList" class="listContainer row">
             <div class="listItem">
                 <p><b>11월 23일</b></p>
                 <p>1시간 53분 23초</p>

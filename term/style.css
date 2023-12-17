@@ -43,6 +43,48 @@ body {
     background-color: #f9f9f9;
 }
 
+/* login */
+#loginFrm {
+    margin-top: 200PX;
+    width: 450px;
+    background: #fff;
+    border: solid 1px #d9d9d9;
+    border-radius: 5px;
+    padding: 30px 50px;
+}
+#loginFrm > p {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+#loginFrm > div {
+    margin-bottom: 10px;
+    width: 100%;
+    float: left;
+}
+#loginFrm > div > span {
+    float: left;
+    line-height: 35px;
+}
+#loginFrm > div > input {
+    float: right;
+    height: 35px;
+    width: 75%;
+    padding: 0 10px;
+    border: solid 1px #d9d9d9;
+    font-size: 14px;
+    font-weight: 300;
+}
+#loginFrm > button {
+    margin-top: 10px;
+    background: #041552;
+    color: #fff;
+    width: 100%;
+    height: 35px;
+}
+
 /* header */
 header {
     background: #fff;
@@ -146,6 +188,13 @@ header > div > .nav > a {
     width: 100%;
     float: left;
 }
+.listContainer > .list > .listItem .subject_no {
+    font-size: 14px;
+    font-weight: normal;
+    float:none ;
+    color: #777;
+    margin-left: 5px;
+}
 
 /* subject */
 #subject {
@@ -153,8 +202,36 @@ header > div > .nav > a {
 }
 
 /* friend */
+#friend .addFriend {
+    width: 100%;
+    margin-bottom: 10px;
+    float: left;
+}
+#friend .addFriend form {
+    float: right;
+}
+#friend .addFriend form input {
+    width: 250px;
+    font-size: 14px;
+    font-weight: 300;
+    height: 30px;
+    border-radius: 5px;
+    border: solid 1px #ddd;
+    padding: 0 10px;
+}
+#friend .addFriend form button {
+    padding: 0 10px;
+    font-size: 14px;
+    height: 30px;
+    color: #fff;
+    background-color: #041552;
+}
+#friend.listContainer > .list {
+    width: 100%;
+    float: left;
+}
 #friend.listContainer > .list > .listItem {
-    width: calc((100% - 40px) / 3);
+    width: calc((100% - 20px) / 3);
     margin-right: 10px;
     margin-bottom: 10px;
 }
@@ -246,7 +323,7 @@ header > div > .nav > a {
     margin-left: 5px;
 }
 #stats > div > .row > .statsItem {
-    width: calc(100% / 4);
+    width: calc(100% / 3);
     border: solid 1px #ddd;
     border-right: none;
     padding: 10px;
@@ -261,6 +338,10 @@ header > div > .nav > a {
 }
 #stats > div > .row > .statsItem > p:last-child {
     color: #777;
+    float: left;
+    float: left;
+    left: 50%;
+    transform: translate(-50%);
 }
 #stats > div > .row#chart {
     margin-top: 20px;
@@ -277,19 +358,25 @@ header > div > .nav > a {
     margin-bottom: 10px;
     width: 100%;
 }
-#stats > div > .row#subjectStats > .subjectStatsItem {
+#stats > div > .row#subjectStats  .subjectStatsItem {
     width: 100%;
     float: left;
 }
-#stats > div > .row#subjectStats > .subjectStatsItem > p:first-child {
+#stats > div > .row#subjectStats  .subjectStatsItem > p:first-child {
     float: left;
 }
-#stats > div > .row#subjectStats > .subjectStatsItem > p:first-child > span {
+#stats > div > .row#subjectStats  .subjectStatsItem > p:first-child > span {
     color: #777;
 }
-#stats > div > .row#subjectStats > .subjectStatsItem > p:last-child {
+#stats > div > .row#subjectStats  .subjectStatsItem > p:last-child {
     float: right;
     color: #777;
+}
+#stats  .material-symbols-outlined {
+    float: left;
+    font-size: 20px;
+    margin-top: 2px;
+    margin-right: 3px;
 }
 
 /* village */
@@ -314,8 +401,8 @@ header > div > .nav > a {
 }
 
 #village > .chacha > img {
-    width: 100%;
-    height: 450px;
+    max-width: 250px;
+    max-height: 300px;
     animation: sway 2s infinite;
 }
 /* #village > .chacha:nth-child(2) {
@@ -330,7 +417,7 @@ header > div > .nav > a {
     width: 130px;
     border-radius: 20px;
     position: absolute;
-    bottom: -100px;
+    bottom: -70px;
     left: 50%;
     transform: translateX(-50%);
     display: none;
@@ -379,11 +466,14 @@ header > div > .nav > a {
     display: none;
 }
 .modal > .row:first-child > p  {
-    font-size: 25px;
+    font-size: 28px;
     width: 100%;
     font-weight: 600;
     text-align: center;
     margin-bottom: 10px;
+}
+#statusModal > .row:first-child > p {
+    font-size: 24px;
 }
 #startModal > div, #statusModal > div {
     justify-content: center;
@@ -470,9 +560,12 @@ header > div > .nav > a {
 /* 통계 모달 */
 #StatsModal {
     height: auto;
+    width: 400px;
 }
 #StatsModal > .row {
     display: block;
+    float: left;
+    width: 100%;
 }
 #StatsModal > div:nth-child(2) {
     text-align: center;
@@ -492,6 +585,12 @@ header > div > .nav > a {
 #StatsModal > .listContainer > .listItem > p:last-child {
     float: right;
     color: #777;
+}
+#StatsModal > .listContainer > .listItem > p > span {
+    float: left;
+    margin-right: 5px;
+    margin-top: 2px;
+    font-size: 20px;
 }
 #StatsModal > div > button {
     left: 50%;
